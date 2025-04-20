@@ -241,7 +241,7 @@ namespace Project {
 			this->tabControl->Multiline = true;
 			this->tabControl->Name = L"tabControl";
 			this->tabControl->SelectedIndex = 0;
-			this->tabControl->Size = System::Drawing::Size(784, 561);
+			this->tabControl->Size = System::Drawing::Size(780, 557);
 			this->tabControl->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabControl->TabIndex = 0;
 			this->tabControl->TabStop = false;
@@ -253,7 +253,7 @@ namespace Project {
 			this->tabAuthorization->Location = System::Drawing::Point(4, 5);
 			this->tabAuthorization->Name = L"tabAuthorization";
 			this->tabAuthorization->Padding = System::Windows::Forms::Padding(3);
-			this->tabAuthorization->Size = System::Drawing::Size(776, 552);
+			this->tabAuthorization->Size = System::Drawing::Size(772, 548);
 			this->tabAuthorization->TabIndex = 0;
 			this->tabAuthorization->Text = L"Аутентификация";
 			this->tabAuthorization->UseVisualStyleBackColor = true;
@@ -550,19 +550,19 @@ namespace Project {
 			// TAB_Product
 			// 
 			this->TAB_Product->Name = L"TAB_Product";
-			this->TAB_Product->Size = System::Drawing::Size(180, 22);
+			this->TAB_Product->Size = System::Drawing::Size(140, 22);
 			this->TAB_Product->Text = L"Продукты";
 			// 
 			// TAB_Customers
 			// 
 			this->TAB_Customers->Name = L"TAB_Customers";
-			this->TAB_Customers->Size = System::Drawing::Size(180, 22);
+			this->TAB_Customers->Size = System::Drawing::Size(140, 22);
 			this->TAB_Customers->Text = L"Покупатели";
 			// 
 			// TAB_Employeer
 			// 
 			this->TAB_Employeer->Name = L"TAB_Employeer";
-			this->TAB_Employeer->Size = System::Drawing::Size(180, 22);
+			this->TAB_Employeer->Size = System::Drawing::Size(140, 22);
 			this->TAB_Employeer->Text = L"Сотрудники";
 			// 
 			// расчетToolStripMenuItem
@@ -582,7 +582,7 @@ namespace Project {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(784, 561);
+			this->ClientSize = System::Drawing::Size(780, 557);
 			this->ControlBox = false;
 			this->Controls->Add(this->tabControl);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;

@@ -47,6 +47,7 @@ System::Void Project::AppForm::buttonSignIn_Click(System::Object^ sender, System
 
 System::Void Project::AppForm::DB_Download_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	dataGridView1->Rows->Clear();
 	String^ connectionString = "provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb";//Строка подключения
 	OleDbConnection^ dbConnection = gcnew OleDbConnection(connectionString);
 
