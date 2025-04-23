@@ -66,13 +66,13 @@ namespace Project {
 
 
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ EmployeerID;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FirstName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LastName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Position;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Phone;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Email;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ HireDate;
+
+
+
+
+
+
+
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ DB_Actions;
 
@@ -102,6 +102,21 @@ namespace Project {
 
 
 	private: System::Windows::Forms::ToolStripMenuItem^ расчетToolStripMenuItem;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ EmployeerID;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FirstName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LastName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SurName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Position;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Phone;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Email;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ HireDate;
+
+
+
+
+
+
+
 
 
 
@@ -205,6 +220,7 @@ namespace Project {
 			this->EmployeerID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->FirstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->LastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->SurName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Position = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Phone = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Email = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -241,7 +257,7 @@ namespace Project {
 			this->tabControl->Multiline = true;
 			this->tabControl->Name = L"tabControl";
 			this->tabControl->SelectedIndex = 0;
-			this->tabControl->Size = System::Drawing::Size(780, 557);
+			this->tabControl->Size = System::Drawing::Size(784, 561);
 			this->tabControl->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabControl->TabIndex = 0;
 			this->tabControl->TabStop = false;
@@ -442,50 +458,84 @@ namespace Project {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AllowUserToResizeColumns = false;
+			this->dataGridView1->AllowUserToResizeRows = false;
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->EmployeerID,
-					this->FirstName, this->LastName, this->Position, this->Phone, this->Email, this->HireDate
+					this->FirstName, this->LastName, this->SurName, this->Position, this->Phone, this->Email, this->HireDate
 			});
-			this->dataGridView1->Location = System::Drawing::Point(3, 45);
+			this->dataGridView1->Location = System::Drawing::Point(3, 66);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(770, 327);
+			this->dataGridView1->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
+			this->dataGridView1->Size = System::Drawing::Size(770, 479);
 			this->dataGridView1->TabIndex = 1;
 			// 
 			// EmployeerID
 			// 
+			this->EmployeerID->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->EmployeerID->Frozen = true;
 			this->EmployeerID->HeaderText = L"ID";
 			this->EmployeerID->Name = L"EmployeerID";
+			this->EmployeerID->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->EmployeerID->Width = 91;
 			// 
 			// FirstName
 			// 
+			this->FirstName->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->FirstName->Frozen = true;
 			this->FirstName->HeaderText = L"Имя";
 			this->FirstName->Name = L"FirstName";
+			this->FirstName->Width = 91;
 			// 
 			// LastName
 			// 
+			this->LastName->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->LastName->Frozen = true;
 			this->LastName->HeaderText = L"Фамилия";
 			this->LastName->Name = L"LastName";
+			this->LastName->Width = 91;
+			// 
+			// SurName
+			// 
+			this->SurName->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->SurName->Frozen = true;
+			this->SurName->HeaderText = L"Отчество";
+			this->SurName->Name = L"SurName";
+			this->SurName->Width = 91;
 			// 
 			// Position
 			// 
+			this->Position->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->Position->Frozen = true;
 			this->Position->HeaderText = L"Работа";
 			this->Position->Name = L"Position";
+			this->Position->Width = 90;
 			// 
 			// Phone
 			// 
+			this->Phone->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->Phone->Frozen = true;
 			this->Phone->HeaderText = L"Номер Телефона";
 			this->Phone->Name = L"Phone";
+			this->Phone->Width = 91;
 			// 
 			// Email
 			// 
+			this->Email->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->Email->Frozen = true;
 			this->Email->HeaderText = L"Электронная почта";
 			this->Email->Name = L"Email";
+			this->Email->Width = 91;
 			// 
 			// HireDate
 			// 
+			this->HireDate->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->HireDate->Frozen = true;
 			this->HireDate->HeaderText = L"Дата найма";
 			this->HireDate->Name = L"HireDate";
+			this->HireDate->Width = 91;
 			// 
 			// menuStrip1
 			// 
@@ -512,28 +562,28 @@ namespace Project {
 			// DB_Download
 			// 
 			this->DB_Download->Name = L"DB_Download";
-			this->DB_Download->Size = System::Drawing::Size(128, 22);
+			this->DB_Download->Size = System::Drawing::Size(180, 22);
 			this->DB_Download->Text = L"Загрузить";
 			this->DB_Download->Click += gcnew System::EventHandler(this, &AppForm::DB_Download_Click);
 			// 
 			// DB_Add
 			// 
 			this->DB_Add->Name = L"DB_Add";
-			this->DB_Add->Size = System::Drawing::Size(128, 22);
+			this->DB_Add->Size = System::Drawing::Size(180, 22);
 			this->DB_Add->Text = L"Добавить";
 			this->DB_Add->Click += gcnew System::EventHandler(this, &AppForm::DB_Add_Click);
 			// 
 			// DB_Update
 			// 
 			this->DB_Update->Name = L"DB_Update";
-			this->DB_Update->Size = System::Drawing::Size(128, 22);
+			this->DB_Update->Size = System::Drawing::Size(180, 22);
 			this->DB_Update->Text = L"Обновить";
 			this->DB_Update->Click += gcnew System::EventHandler(this, &AppForm::DB_Update_Click);
 			// 
 			// DB_Delete
 			// 
 			this->DB_Delete->Name = L"DB_Delete";
-			this->DB_Delete->Size = System::Drawing::Size(128, 22);
+			this->DB_Delete->Size = System::Drawing::Size(180, 22);
 			this->DB_Delete->Text = L"Удалить";
 			this->DB_Delete->Click += gcnew System::EventHandler(this, &AppForm::DB_Delete_Click);
 			// 
@@ -550,19 +600,19 @@ namespace Project {
 			// TAB_Product
 			// 
 			this->TAB_Product->Name = L"TAB_Product";
-			this->TAB_Product->Size = System::Drawing::Size(140, 22);
+			this->TAB_Product->Size = System::Drawing::Size(180, 22);
 			this->TAB_Product->Text = L"Продукты";
 			// 
 			// TAB_Customers
 			// 
 			this->TAB_Customers->Name = L"TAB_Customers";
-			this->TAB_Customers->Size = System::Drawing::Size(140, 22);
+			this->TAB_Customers->Size = System::Drawing::Size(180, 22);
 			this->TAB_Customers->Text = L"Покупатели";
 			// 
 			// TAB_Employeer
 			// 
 			this->TAB_Employeer->Name = L"TAB_Employeer";
-			this->TAB_Employeer->Size = System::Drawing::Size(140, 22);
+			this->TAB_Employeer->Size = System::Drawing::Size(180, 22);
 			this->TAB_Employeer->Text = L"Сотрудники";
 			// 
 			// расчетToolStripMenuItem
@@ -582,7 +632,7 @@ namespace Project {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(780, 557);
+			this->ClientSize = System::Drawing::Size(784, 561);
 			this->ControlBox = false;
 			this->Controls->Add(this->tabControl);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
