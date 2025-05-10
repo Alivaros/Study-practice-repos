@@ -22,37 +22,90 @@ System::Void Project::AppForm::buttonExit_Click(System::Object^ sender, System::
 
 System::Void Project::AppForm::buttonClear_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	
-}
-
-System::Void Project::AppForm::userChoiceType_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
-{
-	String^ userType = userChoiceType->SelectedItem->ToString();
-	if (userType == "Администратор")
-	{
-		userInputLogin->Enabled = true;
-		userInputPassword->Enabled = true;
-		buttonLogIn->Enabled = true;
-		buttonSignIn->Enabled = false;
-	}
-	else if(userType == "Пользователь")
-	{
-		userInputLogin->Enabled = false;
-		userInputPassword->Enabled = false;
-		buttonLogIn->Enabled = false;
-		buttonSignIn->Enabled = true;
-	}
-
+	userInputUsername->Clear();
+	userInputPassword->Clear();
 }
 
 System::Void Project::AppForm::buttonLogIn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	
-	buttonSignIn->Enabled = true;
+	String^ connectionString = "provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database.accdb";//Строка подключения
+	OleDbConnection^ dbConnection = gcnew OleDbConnection(connectionString);
+
+	String^ query =
+		"SELECT [Пользователи].[Код типа пользователя] "
+		"FROM [Пользователи] "
+		"INNER JOIN [Тип пользователя] "
+		"ON [Пользователи].[Код типа пользователя] = [Тип пользователя].[Код типа пользователя] "
+		"WHERE [Пользователи].[Логин] = @username AND [Пользователи].[Пароль] = @password";
+
+	OleDbCommand^ dbCommand = gcnew OleDbCommand(query, dbConnection);
+	dbCommand->Parameters->AddWithValue("@username", userInputUsername->Text);
+	dbCommand->Parameters->AddWithValue("@password", userInputPassword->Text);
+
+	int userTypeCode = -1;
+
+	try
+	{
+		dbConnection->Open();
+		Object^ result = dbCommand->ExecuteScalar();
+		if (result != nullptr)
+		{
+			userTypeCode = Convert::ToInt32(result);
+		}
+		dbConnection->Close();
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show("Ошибка при подключении: " + ex->Message);
+		return;
+	}
+
+	// Разграничение прав
+	if (userTypeCode == 1)
+	{
+		MessageBox::Show("Вы вошли как администратор.");
+		userInputUsername->Enabled = false;
+		userInputPassword->Enabled = false;
+		buttonSignIn->Visible = true;
+		buttonSignIn->Enabled = true;
+
+		DB_Update->Visible = true;
+		DB_Add->Visible = true;
+		DB_Delete->Visible = true;
+
+		TAB_Customers->Visible = true;
+		TAB_Employeer->Visible = true;
+
+		DB_Calc->Visible = true;
+	}
+	else if (userTypeCode == 2)
+	{
+		MessageBox::Show("Вы вошли как пользователь.");
+		userInputUsername->Enabled = false;
+		userInputPassword->Enabled = false;
+		buttonSignIn->Visible = true;
+		buttonSignIn->Enabled = true;
+
+		DB_Update->Visible = false;
+		DB_Add->Visible = false;
+		DB_Delete->Visible = false;
+
+		TAB_Customers->Visible = false;
+		TAB_Employeer->Visible = false;
+
+		DB_Calc->Visible = false;
+	}
+	else
+	{
+		MessageBox::Show("Неверный логин или пароль.");
+	}
+
+
 }
 
 System::Void Project::AppForm::buttonSignIn_Click(System::Object^ sender, System::EventArgs^ e)
 {
+
 	tabControl->SelectedIndex = 1;
 }
 
@@ -182,11 +235,11 @@ System::Void Project::AppForm::DB_Search_Click(System::Object^ sender, System::E
 
 	if (!isClicked)
 	{
-		// Переключаем tabControlDB в верхнюю часть формы
+		
 		tabControlDB->Dock = System::Windows::Forms::DockStyle::Top;
-		tabControlDB->Height = 342; // Например, половина окна
+		tabControlDB->Height = 342;
 
-		// Показываем GroupBox снизу
+		
 		gBSearch->Visible = true;
 		gBSearch->Dock = System::Windows::Forms::DockStyle::Bottom;
 
@@ -194,7 +247,6 @@ System::Void Project::AppForm::DB_Search_Click(System::Object^ sender, System::E
 	}
 	else
 	{
-		// Возвращаем tabControlDB на весь экран
 		gBSearch->Visible = false;
 		gBSearch->Dock = System::Windows::Forms::DockStyle::None;
 
@@ -244,11 +296,45 @@ System::Void Project::AppForm::gBSearch_VisibleChanged(System::Object^ sender, S
 			
 }
 
+System::Void Project::AppForm::buttonShowPassword_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	static bool isClicked = false;
+
+	if (!isClicked)
+	{
+		userInputPassword->PasswordChar = '\0';
+		buttonShowPassword->Image = Image::FromFile("Pictures\\Login\\EyeSource.jpg");
+	}
+	else
+	{
+		userInputPassword->PasswordChar = '*';
+		buttonShowPassword->Image = Image::FromFile("Pictures\\Login\\EyeOFFSource.jpg");
+	}
+	isClicked = !isClicked;
+}
+
 System::Void Project::AppForm::DB_Exit_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	dGVEmployee->Rows->Clear();
 	dGVCustomer->Rows->Clear(); 
 	dGVProduct->Rows->Clear();
 	tabControl->SelectedIndex = 0;
+	buttonSignIn->Visible = false;
+	buttonSignIn->Enabled = false;
+	userInputUsername->Enabled = true;
+	userInputPassword->Enabled = true;
+	userInputUsername->Clear();
+	userInputPassword->Clear();
+
+	buttonSignIn->Enabled = true;
+
+	DB_Update->Visible = false;
+	DB_Add->Visible = false;
+	DB_Delete->Visible = false;
+
+	TAB_Customers->Visible = false;
+	TAB_Employeer->Visible = false;
+
+	DB_Calc->Visible = false;
 }
 

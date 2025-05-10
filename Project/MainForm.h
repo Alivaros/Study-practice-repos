@@ -180,7 +180,6 @@ namespace Project {
 			// 
 			// buttonInfo
 			// 
-			this->buttonInfo->Enabled = false;
 			this->buttonInfo->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonInfo->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));

@@ -90,7 +90,7 @@ void DBInteraction::dbAdd()
 		MessageBox::Show("Ошибка выполнения запроса!", "Ошибка", 
 			MessageBoxButtons::OK, MessageBoxIcon::Error);
 	else
-		MessageBox::Show("Данные добавленны", "Ошибка", 
+		MessageBox::Show("Данные добавленны", "Успешно", 
 			MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 	// закрываем соединение с бд
@@ -142,7 +142,7 @@ void DBInteraction::dbUpdate()
 		MessageBox::Show("Ошибка выполнения запроса!", "Ошибка", 
 			MessageBoxButtons::OK, MessageBoxIcon::Error);
 	else
-		MessageBox::Show("Данные обновлены", "Ошибка", 
+		MessageBox::Show("Данные обновлены", "Успешно!", 
 			MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 	// закрываем соединение с бд

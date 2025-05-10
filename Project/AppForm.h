@@ -50,15 +50,17 @@ namespace Project {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ userInputPassword;
+	private: System::Windows::Forms::TextBox^ userInputUsername;
 
-	private: System::Windows::Forms::TextBox^ userInputLogin;
+
+
 
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::ComboBox^ userChoiceType;
 
 
-	private: System::Windows::Forms::GroupBox^ groupBox2;
+
+
+
 	private: System::Windows::Forms::Button^ buttonSignIn;
 
 
@@ -164,6 +166,8 @@ private: System::Windows::Forms::TextBox^ textBoxSearch;
 private: System::Windows::Forms::ToolStripMenuItem^ DB_Search;
 private: System::Windows::Forms::Label^ label5;
 private: System::Windows::Forms::ComboBox^ cBSelectColumn;
+private: System::Windows::Forms::Button^ buttonShowPassword;
+
 
 
 
@@ -200,17 +204,16 @@ private: System::ComponentModel::IContainer^ components;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AppForm::typeid));
 			this->tabControl = (gcnew System::Windows::Forms::TabControl());
 			this->tabAuthorization = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->buttonSignIn = (gcnew System::Windows::Forms::Button());
-			this->buttonExit = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->buttonShowPassword = (gcnew System::Windows::Forms::Button());
+			this->buttonExit = (gcnew System::Windows::Forms::Button());
+			this->buttonSignIn = (gcnew System::Windows::Forms::Button());
 			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->buttonLogIn = (gcnew System::Windows::Forms::Button());
-			this->userInputLogin = (gcnew System::Windows::Forms::TextBox());
-			this->userChoiceType = (gcnew System::Windows::Forms::ComboBox());
+			this->userInputUsername = (gcnew System::Windows::Forms::TextBox());
 			this->userInputPassword = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -258,12 +261,11 @@ private: System::ComponentModel::IContainer^ components;
 			this->TAB_Product = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->TAB_Customers = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->TAB_Employeer = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->DB_Calc = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->DB_Search = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->DB_Calc = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->DB_Exit = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tabControl->SuspendLayout();
 			this->tabAuthorization->SuspendLayout();
-			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tabDatabase->SuspendLayout();
 			this->gBSearch->SuspendLayout();
@@ -295,41 +297,47 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabAuthorization
 			// 
-			this->tabAuthorization->Controls->Add(this->groupBox2);
 			this->tabAuthorization->Controls->Add(this->groupBox1);
 			this->tabAuthorization->Location = System::Drawing::Point(4, 5);
 			this->tabAuthorization->Name = L"tabAuthorization";
 			this->tabAuthorization->Padding = System::Windows::Forms::Padding(3);
-			this->tabAuthorization->Size = System::Drawing::Size(768, 544);
+			this->tabAuthorization->Size = System::Drawing::Size(776, 552);
 			this->tabAuthorization->TabIndex = 0;
 			this->tabAuthorization->Text = L"Аутентификация";
 			this->tabAuthorization->UseVisualStyleBackColor = true;
 			// 
-			// groupBox2
+			// groupBox1
 			// 
-			this->groupBox2->Controls->Add(this->buttonSignIn);
-			this->groupBox2->Controls->Add(this->buttonExit);
-			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 21.75F));
-			this->groupBox2->Location = System::Drawing::Point(501, 316);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(267, 213);
-			this->groupBox2->TabIndex = 13;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Панель управления";
-			// 
-			// buttonSignIn
-			// 
-			this->buttonSignIn->Enabled = false;
-			this->buttonSignIn->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->buttonSignIn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->Controls->Add(this->buttonShowPassword);
+			this->groupBox1->Controls->Add(this->buttonExit);
+			this->groupBox1->Controls->Add(this->buttonSignIn);
+			this->groupBox1->Controls->Add(this->buttonClear);
+			this->groupBox1->Controls->Add(this->buttonLogIn);
+			this->groupBox1->Controls->Add(this->userInputUsername);
+			this->groupBox1->Controls->Add(this->userInputPassword);
+			this->groupBox1->Controls->Add(this->label3);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonSignIn->Location = System::Drawing::Point(53, 55);
-			this->buttonSignIn->Name = L"buttonSignIn";
-			this->buttonSignIn->Size = System::Drawing::Size(180, 48);
-			this->buttonSignIn->TabIndex = 3;
-			this->buttonSignIn->Text = L"Войти";
-			this->buttonSignIn->UseVisualStyleBackColor = true;
-			this->buttonSignIn->Click += gcnew System::EventHandler(this, &AppForm::buttonSignIn_Click);
+			this->groupBox1->Location = System::Drawing::Point(3, 3);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(770, 546);
+			this->groupBox1->TabIndex = 12;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Авторизация пользователя";
+			// 
+			// buttonShowPassword
+			// 
+			this->buttonShowPassword->BackColor = System::Drawing::Color::White;
+			this->buttonShowPassword->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonShowPassword.Image")));
+			this->buttonShowPassword->Location = System::Drawing::Point(472, 287);
+			this->buttonShowPassword->Name = L"buttonShowPassword";
+			this->buttonShowPassword->Size = System::Drawing::Size(64, 31);
+			this->buttonShowPassword->TabIndex = 12;
+			this->buttonShowPassword->UseVisualStyleBackColor = false;
+			this->buttonShowPassword->Click += gcnew System::EventHandler(this, &AppForm::buttonShowPassword_Click);
 			// 
 			// buttonExit
 			// 
@@ -337,7 +345,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->buttonExit->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonExit->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonExit->Location = System::Drawing::Point(53, 141);
+			this->buttonExit->Location = System::Drawing::Point(580, 482);
 			this->buttonExit->Name = L"buttonExit";
 			this->buttonExit->Size = System::Drawing::Size(180, 48);
 			this->buttonExit->TabIndex = 2;
@@ -345,47 +353,29 @@ private: System::ComponentModel::IContainer^ components;
 			this->buttonExit->UseVisualStyleBackColor = true;
 			this->buttonExit->Click += gcnew System::EventHandler(this, &AppForm::buttonExit_Click);
 			// 
-			// groupBox1
+			// buttonSignIn
 			// 
-			this->groupBox1->Controls->Add(this->label4);
-			this->groupBox1->Controls->Add(this->buttonClear);
-			this->groupBox1->Controls->Add(this->buttonLogIn);
-			this->groupBox1->Controls->Add(this->userInputLogin);
-			this->groupBox1->Controls->Add(this->userChoiceType);
-			this->groupBox1->Controls->Add(this->userInputPassword);
-			this->groupBox1->Controls->Add(this->label3);
-			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->buttonSignIn->Enabled = false;
+			this->buttonSignIn->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->buttonSignIn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->groupBox1->Location = System::Drawing::Point(8, 6);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(468, 419);
-			this->groupBox1->TabIndex = 12;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Авторизация пользователя";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(22, 50);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(253, 23);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"Выберете тип пользователя";
-			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->buttonSignIn->Location = System::Drawing::Point(276, 350);
+			this->buttonSignIn->Name = L"buttonSignIn";
+			this->buttonSignIn->Size = System::Drawing::Size(180, 48);
+			this->buttonSignIn->TabIndex = 3;
+			this->buttonSignIn->Text = L"Войти";
+			this->buttonSignIn->UseVisualStyleBackColor = true;
+			this->buttonSignIn->Visible = false;
+			this->buttonSignIn->Click += gcnew System::EventHandler(this, &AppForm::buttonSignIn_Click);
 			// 
 			// buttonClear
 			// 
-			this->buttonClear->Enabled = false;
 			this->buttonClear->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonClear->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonClear->Location = System::Drawing::Point(236, 365);
+			this->buttonClear->Location = System::Drawing::Point(276, 425);
 			this->buttonClear->Name = L"buttonClear";
-			this->buttonClear->Size = System::Drawing::Size(220, 48);
+			this->buttonClear->Size = System::Drawing::Size(180, 63);
 			this->buttonClear->TabIndex = 3;
 			this->buttonClear->Text = L"Очистить поля ввода";
 			this->buttonClear->UseVisualStyleBackColor = true;
@@ -393,61 +383,46 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// buttonLogIn
 			// 
-			this->buttonLogIn->Enabled = false;
 			this->buttonLogIn->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonLogIn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonLogIn->Location = System::Drawing::Point(6, 365);
+			this->buttonLogIn->Location = System::Drawing::Point(276, 350);
 			this->buttonLogIn->Name = L"buttonLogIn";
-			this->buttonLogIn->Size = System::Drawing::Size(152, 48);
+			this->buttonLogIn->Size = System::Drawing::Size(180, 48);
 			this->buttonLogIn->TabIndex = 4;
 			this->buttonLogIn->Text = L"Авторизоваться";
 			this->buttonLogIn->UseVisualStyleBackColor = true;
 			this->buttonLogIn->Click += gcnew System::EventHandler(this, &AppForm::buttonLogIn_Click);
 			// 
-			// userInputLogin
+			// userInputUsername
 			// 
-			this->userInputLogin->Enabled = false;
-			this->userInputLogin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->userInputLogin->Location = System::Drawing::Point(127, 153);
-			this->userInputLogin->Name = L"userInputLogin";
-			this->userInputLogin->Size = System::Drawing::Size(180, 31);
-			this->userInputLogin->TabIndex = 5;
-			// 
-			// userChoiceType
-			// 
-			this->userChoiceType->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->userChoiceType->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->userChoiceType->FormattingEnabled = true;
-			this->userChoiceType->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Администратор", L"Пользователь" });
-			this->userChoiceType->Location = System::Drawing::Point(281, 47);
-			this->userChoiceType->Name = L"userChoiceType";
-			this->userChoiceType->Size = System::Drawing::Size(175, 31);
-			this->userChoiceType->TabIndex = 10;
-			this->userChoiceType->TabStop = false;
-			this->userChoiceType->SelectedIndexChanged += gcnew System::EventHandler(this, &AppForm::userChoiceType_SelectedIndexChanged);
+			this->userInputUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->userInputUsername->Location = System::Drawing::Point(276, 201);
+			this->userInputUsername->Name = L"userInputUsername";
+			this->userInputUsername->Size = System::Drawing::Size(180, 31);
+			this->userInputUsername->TabIndex = 5;
+			this->userInputUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// userInputPassword
 			// 
-			this->userInputPassword->Enabled = false;
 			this->userInputPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->userInputPassword->Location = System::Drawing::Point(127, 253);
+			this->userInputPassword->Location = System::Drawing::Point(276, 287);
 			this->userInputPassword->Name = L"userInputPassword";
 			this->userInputPassword->PasswordChar = '*';
 			this->userInputPassword->Size = System::Drawing::Size(180, 31);
 			this->userInputPassword->TabIndex = 6;
+			this->userInputPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(22, 121);
+			this->label3->Location = System::Drawing::Point(168, 165);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(89, 23);
+			this->label3->Size = System::Drawing::Size(102, 27);
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"Введите:";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -457,7 +432,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(127, 117);
+			this->label1->Location = System::Drawing::Point(276, 165);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(195, 27);
 			this->label1->TabIndex = 7;
@@ -469,7 +444,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(176, 214);
+			this->label2->Location = System::Drawing::Point(321, 257);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(87, 27);
 			this->label2->TabIndex = 8;
@@ -483,7 +458,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabDatabase->Location = System::Drawing::Point(4, 5);
 			this->tabDatabase->Name = L"tabDatabase";
 			this->tabDatabase->Padding = System::Windows::Forms::Padding(3);
-			this->tabDatabase->Size = System::Drawing::Size(776, 552);
+			this->tabDatabase->Size = System::Drawing::Size(768, 544);
 			this->tabDatabase->TabIndex = 1;
 			this->tabDatabase->Text = L" БД";
 			this->tabDatabase->UseVisualStyleBackColor = true;
@@ -498,9 +473,9 @@ private: System::ComponentModel::IContainer^ components;
 			this->gBSearch->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->gBSearch->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->gBSearch->Location = System::Drawing::Point(3, 367);
+			this->gBSearch->Location = System::Drawing::Point(3, 359);
 			this->gBSearch->Name = L"gBSearch";
-			this->gBSearch->Size = System::Drawing::Size(770, 182);
+			this->gBSearch->Size = System::Drawing::Size(762, 182);
 			this->gBSearch->TabIndex = 4;
 			this->gBSearch->TabStop = false;
 			this->gBSearch->Text = L"Поиск";
@@ -522,7 +497,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->cBSelectColumn->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cBSelectColumn->FormattingEnabled = true;
-			this->cBSelectColumn->Location = System::Drawing::Point(29, 65);
+			this->cBSelectColumn->Location = System::Drawing::Point(29, 49);
 			this->cBSelectColumn->Name = L"cBSelectColumn";
 			this->cBSelectColumn->Size = System::Drawing::Size(356, 29);
 			this->cBSelectColumn->TabIndex = 12;
@@ -570,7 +545,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControlDB->Location = System::Drawing::Point(3, 27);
 			this->tabControlDB->Name = L"tabControlDB";
 			this->tabControlDB->SelectedIndex = 0;
-			this->tabControlDB->Size = System::Drawing::Size(770, 522);
+			this->tabControlDB->Size = System::Drawing::Size(762, 514);
 			this->tabControlDB->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabControlDB->TabIndex = 3;
 			this->tabControlDB->TabStop = false;
@@ -581,7 +556,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBProduct->Location = System::Drawing::Point(4, 5);
 			this->tPDBProduct->Name = L"tPDBProduct";
 			this->tPDBProduct->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBProduct->Size = System::Drawing::Size(762, 513);
+			this->tPDBProduct->Size = System::Drawing::Size(754, 505);
 			this->tPDBProduct->TabIndex = 2;
 			this->tPDBProduct->Text = L"Продукты";
 			this->tPDBProduct->UseVisualStyleBackColor = true;
@@ -601,7 +576,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVProduct->Location = System::Drawing::Point(3, 3);
 			this->dGVProduct->Name = L"dGVProduct";
 			this->dGVProduct->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVProduct->Size = System::Drawing::Size(756, 507);
+			this->dGVProduct->Size = System::Drawing::Size(748, 499);
 			this->dGVProduct->TabIndex = 2;
 			// 
 			// ProductID
@@ -648,7 +623,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBCustomers->Location = System::Drawing::Point(4, 5);
 			this->tPDBCustomers->Name = L"tPDBCustomers";
 			this->tPDBCustomers->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBCustomers->Size = System::Drawing::Size(758, 509);
+			this->tPDBCustomers->Size = System::Drawing::Size(754, 505);
 			this->tPDBCustomers->TabIndex = 1;
 			this->tPDBCustomers->Text = L"Покупатели";
 			this->tPDBCustomers->UseVisualStyleBackColor = true;
@@ -668,7 +643,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVCustomer->Location = System::Drawing::Point(3, 3);
 			this->dGVCustomer->Name = L"dGVCustomer";
 			this->dGVCustomer->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVCustomer->Size = System::Drawing::Size(752, 503);
+			this->dGVCustomer->Size = System::Drawing::Size(748, 499);
 			this->dGVCustomer->TabIndex = 2;
 			// 
 			// CustomerID
@@ -710,7 +685,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBEmployee->Location = System::Drawing::Point(4, 5);
 			this->tPDBEmployee->Name = L"tPDBEmployee";
 			this->tPDBEmployee->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBEmployee->Size = System::Drawing::Size(758, 509);
+			this->tPDBEmployee->Size = System::Drawing::Size(754, 505);
 			this->tPDBEmployee->TabIndex = 0;
 			this->tPDBEmployee->Text = L"Сотрудники";
 			this->tPDBEmployee->UseVisualStyleBackColor = true;
@@ -731,7 +706,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVEmployee->Location = System::Drawing::Point(3, 3);
 			this->dGVEmployee->Name = L"dGVEmployee";
 			this->dGVEmployee->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVEmployee->Size = System::Drawing::Size(752, 503);
+			this->dGVEmployee->Size = System::Drawing::Size(748, 499);
 			this->dGVEmployee->TabIndex = 1;
 			// 
 			// EmployeeID
@@ -790,11 +765,11 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->DB_Actions, this->DB_Table,
-					this->DB_Calc, this->DB_Search, this->DB_Exit
+					this->DB_Search, this->DB_Calc, this->DB_Exit
 			});
 			this->menuStrip1->Location = System::Drawing::Point(3, 3);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(770, 24);
+			this->menuStrip1->Size = System::Drawing::Size(762, 24);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -820,6 +795,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->DB_Add->Name = L"DB_Add";
 			this->DB_Add->Size = System::Drawing::Size(128, 22);
 			this->DB_Add->Text = L"Добавить";
+			this->DB_Add->Visible = false;
 			this->DB_Add->Click += gcnew System::EventHandler(this, &AppForm::DB_Add_Click);
 			// 
 			// DB_Update
@@ -827,6 +803,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->DB_Update->Name = L"DB_Update";
 			this->DB_Update->Size = System::Drawing::Size(128, 22);
 			this->DB_Update->Text = L"Обновить";
+			this->DB_Update->Visible = false;
 			this->DB_Update->Click += gcnew System::EventHandler(this, &AppForm::DB_Update_Click);
 			// 
 			// DB_Delete
@@ -834,6 +811,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->DB_Delete->Name = L"DB_Delete";
 			this->DB_Delete->Size = System::Drawing::Size(128, 22);
 			this->DB_Delete->Text = L"Удалить";
+			this->DB_Delete->Visible = false;
 			this->DB_Delete->Click += gcnew System::EventHandler(this, &AppForm::DB_Delete_Click);
 			// 
 			// DB_Table
@@ -858,6 +836,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->TAB_Customers->Name = L"TAB_Customers";
 			this->TAB_Customers->Size = System::Drawing::Size(140, 22);
 			this->TAB_Customers->Text = L"Покупатели";
+			this->TAB_Customers->Visible = false;
 			this->TAB_Customers->Click += gcnew System::EventHandler(this, &AppForm::TAB_Customers_Click);
 			// 
 			// TAB_Employeer
@@ -865,14 +844,8 @@ private: System::ComponentModel::IContainer^ components;
 			this->TAB_Employeer->Name = L"TAB_Employeer";
 			this->TAB_Employeer->Size = System::Drawing::Size(140, 22);
 			this->TAB_Employeer->Text = L"Сотрудники";
+			this->TAB_Employeer->Visible = false;
 			this->TAB_Employeer->Click += gcnew System::EventHandler(this, &AppForm::TAB_Employeer_Click);
-			// 
-			// DB_Calc
-			// 
-			this->DB_Calc->Name = L"DB_Calc";
-			this->DB_Calc->Size = System::Drawing::Size(56, 20);
-			this->DB_Calc->Text = L"Расчет";
-			this->DB_Calc->Click += gcnew System::EventHandler(this, &AppForm::DB_Calc_Click);
 			// 
 			// DB_Search
 			// 
@@ -880,6 +853,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->DB_Search->Size = System::Drawing::Size(54, 20);
 			this->DB_Search->Text = L"Поиск";
 			this->DB_Search->Click += gcnew System::EventHandler(this, &AppForm::DB_Search_Click);
+			// 
+			// DB_Calc
+			// 
+			this->DB_Calc->Name = L"DB_Calc";
+			this->DB_Calc->Size = System::Drawing::Size(56, 20);
+			this->DB_Calc->Text = L"Расчет";
+			this->DB_Calc->Visible = false;
+			this->DB_Calc->Click += gcnew System::EventHandler(this, &AppForm::DB_Calc_Click);
 			// 
 			// DB_Exit
 			// 
@@ -907,7 +888,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->Text = L"Приложение";
 			this->tabControl->ResumeLayout(false);
 			this->tabAuthorization->ResumeLayout(false);
-			this->groupBox2->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->tabDatabase->ResumeLayout(false);
@@ -929,7 +909,6 @@ private: System::ComponentModel::IContainer^ components;
 #pragma endregion
 	private: System::Void buttonExit_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buttonClear_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void userChoiceType_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buttonLogIn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buttonSignIn_Click(System::Object^ sender, System::EventArgs^ e);	
 	private: System::Void DB_Exit_Click(System::Object^ sender, System::EventArgs^ e);
@@ -944,5 +923,6 @@ private: System::ComponentModel::IContainer^ components;
 	private: System::Void DB_Search_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void gBSearch_VisibleChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void buttonShowPassword_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
