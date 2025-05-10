@@ -180,10 +180,11 @@ namespace Project {
 			// 
 			// buttonInfo
 			// 
+			this->buttonInfo->Enabled = false;
 			this->buttonInfo->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonInfo->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonInfo->Location = System::Drawing::Point(430, 489);
+			this->buttonInfo->Location = System::Drawing::Point(496, 489);
 			this->buttonInfo->Name = L"buttonInfo";
 			this->buttonInfo->Size = System::Drawing::Size(135, 60);
 			this->buttonInfo->TabIndex = 17;
@@ -196,7 +197,7 @@ namespace Project {
 			this->buttonExit->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonExit->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonExit->Location = System::Drawing::Point(571, 489);
+			this->buttonExit->Location = System::Drawing::Point(637, 489);
 			this->buttonExit->Name = L"buttonExit";
 			this->buttonExit->Size = System::Drawing::Size(135, 60);
 			this->buttonExit->TabIndex = 16;
@@ -209,7 +210,7 @@ namespace Project {
 			this->buttonApp->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonApp->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->buttonApp->Location = System::Drawing::Point(289, 489);
+			this->buttonApp->Location = System::Drawing::Point(355, 489);
 			this->buttonApp->Name = L"buttonApp";
 			this->buttonApp->Size = System::Drawing::Size(135, 60);
 			this->buttonApp->TabIndex = 15;

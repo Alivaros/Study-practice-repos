@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppForm.cpp" />
+    <ClCompile Include="CalcForm.cpp" />
+    <ClCompile Include="DBInteraction.cpp" />
     <ClCompile Include="InfoForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
@@ -126,6 +128,10 @@
     <ClInclude Include="AppForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CalcForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DBInteraction.h" />
     <ClInclude Include="InfoForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -136,6 +142,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AppForm.resx">
       <DependentUpon>AppForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalcForm.resx">
+      <DependentUpon>CalcForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
