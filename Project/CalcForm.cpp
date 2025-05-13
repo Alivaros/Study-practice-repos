@@ -110,12 +110,12 @@ System::Void Project::CalcForm::buttonCalc_Click(System::Object^ sender, System:
             // отн ошибка 
             double relativeError = Math::Abs((double)absoluteError) / y[i] * 100;
 
-            // «аписываем ошибки в таблицу только дл€ мес€цев с 2 по 9 (с феврал€ по окт€брь)
+           
             if (i > 0 && i < 10)
             {
                 dGVCalcData->Rows[i]->Cells["AbsoluteErrorDeltaT"]->Value = absoluteError.ToString();
                 dGVCalcData->Rows[i]->Cells["DeltaTinSquare"]->Value = deltaTInSquare.ToString();
-                dGVCalcData->Rows[i]->Cells["RelativeError"]->Value = relativeError.ToString("0.##"); // 2 знака после зап€той
+                dGVCalcData->Rows[i]->Cells["RelativeError"]->Value = relativeError.ToString("0.##"); 
             }
             else
             {
@@ -128,12 +128,12 @@ System::Void Project::CalcForm::buttonCalc_Click(System::Object^ sender, System:
     }
 
 
-    // ’ранение итог сумм ошибок
+    // итог сумм ошибок
     int totalAbsoluteError = 0;
     int totalDeltaTInSquare = 0;
     double totalRelativeError = 0.0;
     double count = 0.0;
-    // ѕроходим с феврал€ по окт€брь
+    // проходим с феврал€ по окт€брь
     for (int i = 1; i < 10; ++i)
     {
         

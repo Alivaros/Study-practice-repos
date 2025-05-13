@@ -167,6 +167,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ DB_Search;
 private: System::Windows::Forms::Label^ label5;
 private: System::Windows::Forms::ComboBox^ cBSelectColumn;
 private: System::Windows::Forms::Button^ buttonShowPassword;
+private: System::Windows::Forms::Button^ btnClear;
 
 
 
@@ -220,6 +221,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tabDatabase = (gcnew System::Windows::Forms::TabPage());
 			this->gBSearch = (gcnew System::Windows::Forms::GroupBox());
+			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->cBSelectColumn = (gcnew System::Windows::Forms::ComboBox());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
@@ -301,7 +303,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabAuthorization->Location = System::Drawing::Point(4, 5);
 			this->tabAuthorization->Name = L"tabAuthorization";
 			this->tabAuthorization->Padding = System::Windows::Forms::Padding(3);
-			this->tabAuthorization->Size = System::Drawing::Size(776, 552);
+			this->tabAuthorization->Size = System::Drawing::Size(768, 544);
 			this->tabAuthorization->TabIndex = 0;
 			this->tabAuthorization->Text = L"Аутентификация";
 			this->tabAuthorization->UseVisualStyleBackColor = true;
@@ -323,7 +325,7 @@ private: System::ComponentModel::IContainer^ components;
 				static_cast<System::Byte>(204)));
 			this->groupBox1->Location = System::Drawing::Point(3, 3);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(770, 546);
+			this->groupBox1->Size = System::Drawing::Size(762, 538);
 			this->groupBox1->TabIndex = 12;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Авторизация пользователя";
@@ -458,13 +460,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabDatabase->Location = System::Drawing::Point(4, 5);
 			this->tabDatabase->Name = L"tabDatabase";
 			this->tabDatabase->Padding = System::Windows::Forms::Padding(3);
-			this->tabDatabase->Size = System::Drawing::Size(768, 544);
+			this->tabDatabase->Size = System::Drawing::Size(776, 552);
 			this->tabDatabase->TabIndex = 1;
 			this->tabDatabase->Text = L" БД";
 			this->tabDatabase->UseVisualStyleBackColor = true;
 			// 
 			// gBSearch
 			// 
+			this->gBSearch->Controls->Add(this->btnClear);
 			this->gBSearch->Controls->Add(this->label5);
 			this->gBSearch->Controls->Add(this->cBSelectColumn);
 			this->gBSearch->Controls->Add(this->btnSearch);
@@ -473,14 +476,26 @@ private: System::ComponentModel::IContainer^ components;
 			this->gBSearch->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->gBSearch->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->gBSearch->Location = System::Drawing::Point(3, 359);
+			this->gBSearch->Location = System::Drawing::Point(3, 367);
 			this->gBSearch->Name = L"gBSearch";
-			this->gBSearch->Size = System::Drawing::Size(762, 182);
+			this->gBSearch->Size = System::Drawing::Size(770, 182);
 			this->gBSearch->TabIndex = 4;
 			this->gBSearch->TabStop = false;
 			this->gBSearch->Text = L"Поиск";
 			this->gBSearch->Visible = false;
 			this->gBSearch->VisibleChanged += gcnew System::EventHandler(this, &AppForm::gBSearch_VisibleChanged);
+			// 
+			// btnClear
+			// 
+			this->btnClear->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnClear->Location = System::Drawing::Point(643, 132);
+			this->btnClear->Name = L"btnClear";
+			this->btnClear->Size = System::Drawing::Size(97, 33);
+			this->btnClear->TabIndex = 14;
+			this->btnClear->Text = L"Очистить";
+			this->btnClear->UseVisualStyleBackColor = true;
+			this->btnClear->Click += gcnew System::EventHandler(this, &AppForm::btnClear_Click);
 			// 
 			// label5
 			// 
@@ -506,9 +521,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->btnSearch->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->btnSearch->Location = System::Drawing::Point(650, 134);
+			this->btnSearch->Location = System::Drawing::Point(643, 80);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(90, 33);
+			this->btnSearch->Size = System::Drawing::Size(97, 33);
 			this->btnSearch->TabIndex = 11;
 			this->btnSearch->Text = L"Поиск";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -545,7 +560,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabControlDB->Location = System::Drawing::Point(3, 27);
 			this->tabControlDB->Name = L"tabControlDB";
 			this->tabControlDB->SelectedIndex = 0;
-			this->tabControlDB->Size = System::Drawing::Size(762, 514);
+			this->tabControlDB->Size = System::Drawing::Size(770, 522);
 			this->tabControlDB->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabControlDB->TabIndex = 3;
 			this->tabControlDB->TabStop = false;
@@ -556,7 +571,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBProduct->Location = System::Drawing::Point(4, 5);
 			this->tPDBProduct->Name = L"tPDBProduct";
 			this->tPDBProduct->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBProduct->Size = System::Drawing::Size(754, 505);
+			this->tPDBProduct->Size = System::Drawing::Size(762, 513);
 			this->tPDBProduct->TabIndex = 2;
 			this->tPDBProduct->Text = L"Продукты";
 			this->tPDBProduct->UseVisualStyleBackColor = true;
@@ -576,7 +591,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVProduct->Location = System::Drawing::Point(3, 3);
 			this->dGVProduct->Name = L"dGVProduct";
 			this->dGVProduct->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVProduct->Size = System::Drawing::Size(748, 499);
+			this->dGVProduct->Size = System::Drawing::Size(756, 507);
 			this->dGVProduct->TabIndex = 2;
 			// 
 			// ProductID
@@ -623,7 +638,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBCustomers->Location = System::Drawing::Point(4, 5);
 			this->tPDBCustomers->Name = L"tPDBCustomers";
 			this->tPDBCustomers->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBCustomers->Size = System::Drawing::Size(754, 505);
+			this->tPDBCustomers->Size = System::Drawing::Size(758, 509);
 			this->tPDBCustomers->TabIndex = 1;
 			this->tPDBCustomers->Text = L"Покупатели";
 			this->tPDBCustomers->UseVisualStyleBackColor = true;
@@ -643,7 +658,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVCustomer->Location = System::Drawing::Point(3, 3);
 			this->dGVCustomer->Name = L"dGVCustomer";
 			this->dGVCustomer->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVCustomer->Size = System::Drawing::Size(748, 499);
+			this->dGVCustomer->Size = System::Drawing::Size(752, 503);
 			this->dGVCustomer->TabIndex = 2;
 			// 
 			// CustomerID
@@ -685,7 +700,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->tPDBEmployee->Location = System::Drawing::Point(4, 5);
 			this->tPDBEmployee->Name = L"tPDBEmployee";
 			this->tPDBEmployee->Padding = System::Windows::Forms::Padding(3);
-			this->tPDBEmployee->Size = System::Drawing::Size(754, 505);
+			this->tPDBEmployee->Size = System::Drawing::Size(758, 509);
 			this->tPDBEmployee->TabIndex = 0;
 			this->tPDBEmployee->Text = L"Сотрудники";
 			this->tPDBEmployee->UseVisualStyleBackColor = true;
@@ -706,7 +721,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->dGVEmployee->Location = System::Drawing::Point(3, 3);
 			this->dGVEmployee->Name = L"dGVEmployee";
 			this->dGVEmployee->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			this->dGVEmployee->Size = System::Drawing::Size(748, 499);
+			this->dGVEmployee->Size = System::Drawing::Size(752, 503);
 			this->dGVEmployee->TabIndex = 1;
 			// 
 			// EmployeeID
@@ -769,7 +784,7 @@ private: System::ComponentModel::IContainer^ components;
 			});
 			this->menuStrip1->Location = System::Drawing::Point(3, 3);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(762, 24);
+			this->menuStrip1->Size = System::Drawing::Size(770, 24);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -924,5 +939,6 @@ private: System::ComponentModel::IContainer^ components;
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void gBSearch_VisibleChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buttonShowPassword_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -129,6 +129,7 @@ System::Void Project::AppForm::DB_Download_Click(System::Object^ sender, System:
 		DBInteraction _DBI(dGVEmployee, "Сотрудники");
 		_DBI.dbDownload();
 	}
+
 }
 
 System::Void Project::AppForm::DB_Add_Click(System::Object^ sender, System::EventArgs^ e)
@@ -311,6 +312,29 @@ System::Void Project::AppForm::buttonShowPassword_Click(System::Object^ sender, 
 		buttonShowPassword->Image = Image::FromFile("Pictures\\Login\\EyeOFFSource.jpg");
 	}
 	isClicked = !isClicked;
+}
+
+System::Void Project::AppForm::btnClear_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (tabControlDB->SelectedIndex == 0)
+	{
+		DBInteraction _DBI(dGVProduct, "Продукты");
+		_DBI.dbDownload();
+	}
+
+	else if (tabControlDB->SelectedIndex == 1)
+	{
+		DBInteraction _DBI(dGVCustomer, "Покупатели");
+		_DBI.dbDownload();
+	}
+
+	else if (tabControlDB->SelectedIndex == 2)
+	{
+		DBInteraction _DBI(dGVEmployee, "Сотрудники");
+		_DBI.dbDownload();
+	}
+	textBoxSearch->Clear();
+
 }
 
 System::Void Project::AppForm::DB_Exit_Click(System::Object^ sender, System::EventArgs^ e)
